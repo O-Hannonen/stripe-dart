@@ -4,19 +4,19 @@ part of '../../../messages.dart';
 class Card {
   /// The expiration month of the card.
   @JsonKey(name: 'exp_month')
-  final int expMonth;
+  final String expMonth;
 
   /// The expiration year of the card
   @JsonKey(name: 'exp_year')
-  final int expYear;
+  final String expYear;
 
   /// The card number.
   @JsonKey(name: 'number')
-  final int number;
+  final String number;
 
   /// The CVC number for the card.
   @JsonKey(name: 'cvc')
-  final int cvc;
+  final String cvc;
 
   Card({
     required this.expMonth,

@@ -1700,10 +1700,10 @@ Map<String, dynamic> _$CreateCardPaymentMethodRequestToJson(
     };
 
 Card _$CardFromJson(Map<String, dynamic> json) => Card(
-      expMonth: json['exp_month'] as int,
-      expYear: json['exp_year'] as int,
-      number: json['number'] as int,
-      cvc: json['cvc'] as int,
+      expMonth: json['exp_month'] as String,
+      expYear: json['exp_year'] as String,
+      number: json['number'] as String,
+      cvc: json['cvc'] as String,
     );
 
 Map<String, dynamic> _$CardToJson(Card instance) => <String, dynamic>{
