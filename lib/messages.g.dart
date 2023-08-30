@@ -1686,3 +1686,29 @@ Map<String, dynamic> _$SubscriptionItemToJson(SubscriptionItem instance) =>
 const _$_SubscriptionItemObjectEnumMap = {
   _SubscriptionItemObject.subscription_item: 'subscription_item',
 };
+
+CreateCardPaymentMethodRequest _$CreateCardPaymentMethodRequestFromJson(
+        Map<String, dynamic> json) =>
+    CreateCardPaymentMethodRequest(
+      card: Card.fromJson(json['card'] as Map<String, dynamic>),
+    );
+
+Map<String, dynamic> _$CreateCardPaymentMethodRequestToJson(
+        CreateCardPaymentMethodRequest instance) =>
+    <String, dynamic>{
+      'card': instance.card.toJson(),
+    };
+
+Card _$CardFromJson(Map<String, dynamic> json) => Card(
+      expMonth: json['exp_month'] as int,
+      expYear: json['exp_year'] as int,
+      number: json['number'] as int,
+      cvc: json['cvc'] as int,
+    );
+
+Map<String, dynamic> _$CardToJson(Card instance) => <String, dynamic>{
+      'exp_month': instance.expMonth,
+      'exp_year': instance.expYear,
+      'number': instance.number,
+      'cvc': instance.cvc,
+    };

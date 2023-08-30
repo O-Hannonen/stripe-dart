@@ -24,4 +24,15 @@ class PaymentMethodResource extends Resource<PaymentMethod> {
 
     return PaymentMethod.fromJson(response);
   }
+
+  Future<PaymentMethod> createCardPaymentMethod(
+    CreateCardPaymentMethodRequest request,
+  ) async {
+    final response = await post(
+      'payment_methods/',
+      data: request.toJson(),
+    );
+
+    return PaymentMethod.fromJson(response);
+  }
 }

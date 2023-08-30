@@ -38,4 +38,11 @@ class SubscriptionResource extends Resource<Subscription> {
     );
     return Subscription.fromJson(response);
   }
+
+  Future<Subscription> cancel(String subscriptionId) async {
+    final response = await delete(
+      'subscriptions/$subscriptionId',
+    );
+    return Subscription.fromJson(response);
+  }
 }
