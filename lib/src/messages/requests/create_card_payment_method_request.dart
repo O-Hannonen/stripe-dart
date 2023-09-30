@@ -4,7 +4,7 @@ part of '../../../messages.dart';
 @JsonSerializable()
 class CreateCardPaymentMethodRequest {
   /// The type of payment method.
-  static const String type = 'card';
+  final String type = 'card';
 
   /// The card this that will be created
   final Card card;
@@ -16,5 +16,8 @@ class CreateCardPaymentMethodRequest {
   factory CreateCardPaymentMethodRequest.fromJson(Map<String, dynamic> json) =>
       _$CreateCardPaymentMethodRequestFromJson(json);
 
-  Map<String, dynamic> toJson() => _$CreateCardPaymentMethodRequestToJson(this);
+  Map<String, dynamic> toJson() => {
+        'type': type,
+        'card': card.toJson(),
+      };
 }

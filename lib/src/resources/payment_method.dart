@@ -29,7 +29,7 @@ class PaymentMethodResource extends Resource<PaymentMethod> {
     CreateCardPaymentMethodRequest request,
   ) async {
     final response = await post(
-      'payment_methods/',
+      'payment_methods',
       data: request.toJson(),
     );
 
