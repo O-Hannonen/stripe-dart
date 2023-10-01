@@ -48,3 +48,5 @@ part 'src/messages/subscription.dart';
 part 'src/messages/subscription_item.dart';
 part 'src/messages/requests/create_card_payment_method_request.dart';
 part 'src/messages/card.dart';
+part 'src/messages/setup_intent.dart';
+part 'src/messages/requests/create_setup_intent.dart';

@@ -1712,3 +1712,48 @@ Map<String, dynamic> _$CardToJson(Card instance) => <String, dynamic>{
       'number': instance.number,
       'cvc': instance.cvc,
     };
+
+SetupIntent _$SetupIntentFromJson(Map<String, dynamic> json) => SetupIntent(
+      metadata: json['metadata'] as Map<String, dynamic>?,
+      id: json['id'] as String,
+      customer: json['customer'] as String?,
+      paymentMethod: json['payment_method'] as String?,
+      clientSecret: json['client_secret'] as String?,
+    );
+
+Map<String, dynamic> _$SetupIntentToJson(SetupIntent instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('metadata', instance.metadata);
+  val['id'] = instance.id;
+  writeNotNull('customer', instance.customer);
+  writeNotNull('payment_method', instance.paymentMethod);
+  writeNotNull('client_secret', instance.clientSecret);
+  return val;
+}
+
+CreateSetupIntentRequest _$CreateSetupIntentRequestFromJson(
+        Map<String, dynamic> json) =>
+    CreateSetupIntentRequest(
+      customer: json['customer'] as String,
+      usage: $enumDecodeNullable(_$UsageEnumMap, json['usage']) ??
+          Usage.offSession,
+    );
+
+Map<String, dynamic> _$CreateSetupIntentRequestToJson(
+        CreateSetupIntentRequest instance) =>
+    <String, dynamic>{
+      'customer': instance.customer,
+      'usage': _$UsageEnumMap[instance.usage]!,
+    };
+
+const _$UsageEnumMap = {
+  Usage.onSession: 'on_session',
+  Usage.offSession: 'off_session',
+};

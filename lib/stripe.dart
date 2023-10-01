@@ -2,6 +2,7 @@ library stripe;
 
 import 'package:meta/meta.dart';
 import 'package:stripe/src/resources/invoice.dart';
+import 'package:stripe/src/resources/setup_intent.dart';
 import 'package:stripe/src/resources/usage_record.dart';
 
 import 'src/client.dart';
@@ -73,6 +74,9 @@ class Stripe {
   /// https://stripe.com/docs/api/payment_methods
   final PaymentMethodResource paymentMethod;
 
+  /// https://stripe.com/docs/api/setup_intents
+  final SetupIntentResource setupIntent;
+
   factory Stripe(String apiKey) {
     final client = Client(apiKey: apiKey);
     return Stripe.withClient(client);
@@ -92,5 +96,6 @@ class Stripe {
         balanceTransaction = BalanceTransactionResource(client),
         invoice = InvoiceResource(client),
         usageRecord = UsageRecordResource(client),
-        paymentMethod = PaymentMethodResource(client);
+        paymentMethod = PaymentMethodResource(client),
+        setupIntent = SetupIntentResource(client);
 }
