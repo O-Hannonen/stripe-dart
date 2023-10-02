@@ -221,7 +221,10 @@ Customer _$CustomerFromJson(Map<String, dynamic> json) => Customer(
       email: json['email'] as String?,
       metadata: json['metadata'] as Map<String, dynamic>?,
       name: json['name'] as String?,
-      paymentMethod: json['default_source'] as String?,
+      invoiceSettings: json['invoice_settings'] == null
+          ? null
+          : InvoiceSettings.fromJson(
+              json['invoice_settings'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$CustomerToJson(Customer instance) {
@@ -240,7 +243,7 @@ Map<String, dynamic> _$CustomerToJson(Customer instance) {
   writeNotNull('email', instance.email);
   writeNotNull('metadata', instance.metadata);
   writeNotNull('name', instance.name);
-  writeNotNull('default_source', instance.paymentMethod);
+  writeNotNull('invoice_settings', instance.invoiceSettings?.toJson());
   return val;
 }
 
@@ -1500,8 +1503,11 @@ UpdateCustomerRequest _$UpdateCustomerRequestFromJson(
         (k, e) => MapEntry(k, e as String),
       ),
       name: json['name'] as String?,
-      paymentMethod: json['default_source'] as String?,
       phoneNumber: json['phone_number'] as String?,
+      invoiceSettings: json['invoice_settings'] == null
+          ? null
+          : InvoiceSettings.fromJson(
+              json['invoice_settings'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$UpdateCustomerRequestToJson(
@@ -1518,9 +1524,9 @@ Map<String, dynamic> _$UpdateCustomerRequestToJson(
   writeNotNull('email', instance.email);
   writeNotNull('metadata', instance.metadata);
   writeNotNull('name', instance.name);
-  writeNotNull('default_source', instance.paymentMethod);
   writeNotNull('phone_number', instance.phoneNumber);
   val['id'] = instance.id;
+  writeNotNull('invoice_settings', instance.invoiceSettings?.toJson());
   return val;
 }
 
@@ -1770,3 +1776,21 @@ const _$UsageEnumMap = {
   Usage.onSession: 'on_session',
   Usage.offSession: 'off_session',
 };
+
+InvoiceSettings _$InvoiceSettingsFromJson(Map<String, dynamic> json) =>
+    InvoiceSettings(
+      defaultPaymentMethod: json['default_payment_method'] as String?,
+    );
+
+Map<String, dynamic> _$InvoiceSettingsToJson(InvoiceSettings instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('default_payment_method', instance.defaultPaymentMethod);
+  return val;
+}

@@ -50,3 +50,4 @@ part 'src/messages/requests/create_card_payment_method_request.dart';
 part 'src/messages/card.dart';
 part 'src/messages/setup_intent.dart';
 part 'src/messages/requests/create_setup_intent.dart';
+part 'src/messages/invoice_settings.dart';

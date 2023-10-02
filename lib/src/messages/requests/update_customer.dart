@@ -7,20 +7,22 @@ class UpdateCustomerRequest extends _CustomerRequest {
   /// Unique identifier for the object.
   final String id;
 
+  @JsonKey(name: 'invoice_settings')
+  final InvoiceSettings? invoiceSettings;
+
   UpdateCustomerRequest({
     required this.id,
     String? description,
     String? email,
     Map<String, String>? metadata,
     String? name,
-    String? paymentMethod,
     String? phoneNumber,
+    this.invoiceSettings,
   }) : super(
           description: description,
           email: email,
           metadata: metadata,
           name: name,
-          paymentMethod: paymentMethod,
           phoneNumber: phoneNumber,
         );
 
