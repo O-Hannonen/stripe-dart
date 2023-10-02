@@ -221,6 +221,7 @@ Customer _$CustomerFromJson(Map<String, dynamic> json) => Customer(
       email: json['email'] as String?,
       metadata: json['metadata'] as Map<String, dynamic>?,
       name: json['name'] as String?,
+      paymentMethod: json['default_source'] as String?,
     );
 
 Map<String, dynamic> _$CustomerToJson(Customer instance) {
@@ -239,6 +240,7 @@ Map<String, dynamic> _$CustomerToJson(Customer instance) {
   writeNotNull('email', instance.email);
   writeNotNull('metadata', instance.metadata);
   writeNotNull('name', instance.name);
+  writeNotNull('default_source', instance.paymentMethod);
   return val;
 }
 
@@ -1719,6 +1721,7 @@ SetupIntent _$SetupIntentFromJson(Map<String, dynamic> json) => SetupIntent(
       customer: json['customer'] as String?,
       paymentMethod: json['payment_method'] as String?,
       clientSecret: json['client_secret'] as String?,
+      status: $enumDecodeNullable(_$PaymentIntentStatusEnumMap, json['status']),
     );
 
 Map<String, dynamic> _$SetupIntentToJson(SetupIntent instance) {
@@ -1735,8 +1738,18 @@ Map<String, dynamic> _$SetupIntentToJson(SetupIntent instance) {
   writeNotNull('customer', instance.customer);
   writeNotNull('payment_method', instance.paymentMethod);
   writeNotNull('client_secret', instance.clientSecret);
+  writeNotNull('status', _$PaymentIntentStatusEnumMap[instance.status]);
   return val;
 }
+
+const _$PaymentIntentStatusEnumMap = {
+  PaymentIntentStatus.requiresPaymentMethod: 'requires_payment_method',
+  PaymentIntentStatus.requiresConfirmation: 'requires_confirmation',
+  PaymentIntentStatus.requiresAction: 'requires_action',
+  PaymentIntentStatus.processing: 'processing',
+  PaymentIntentStatus.canceled: 'canceled',
+  PaymentIntentStatus.succeeded: 'succeeded',
+};
 
 CreateSetupIntentRequest _$CreateSetupIntentRequestFromJson(
         Map<String, dynamic> json) =>

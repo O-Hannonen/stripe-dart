@@ -16,4 +16,12 @@ class SetupIntentResource extends Resource<SetupIntent> {
 
     return SetupIntent.fromJson(response);
   }
+
+  Future<SetupIntent> retrieve(String id) async {
+    final response = await get(
+      'setup_intents/$id',
+    );
+
+    return SetupIntent.fromJson(response);
+  }
 }

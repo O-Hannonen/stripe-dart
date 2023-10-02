@@ -18,12 +18,15 @@ class SetupIntent extends Message {
   @JsonKey(name: 'client_secret')
   final String? clientSecret;
 
+  final PaymentIntentStatus? status;
+
   SetupIntent({
     this.metadata,
     required this.id,
     this.customer,
     this.paymentMethod,
     this.clientSecret,
+    this.status,
   });
 
   factory SetupIntent.fromJson(Map<String, dynamic> json) =>
@@ -31,4 +34,24 @@ class SetupIntent extends Message {
 
   @override
   Map<String, dynamic> toJson() => _$SetupIntentToJson(this);
+}
+
+enum PaymentIntentStatus {
+  @JsonValue('requires_payment_method')
+  requiresPaymentMethod,
+
+  @JsonValue('requires_confirmation')
+  requiresConfirmation,
+
+  @JsonValue('requires_action')
+  requiresAction,
+
+  @JsonValue('processing')
+  processing,
+
+  @JsonValue('canceled')
+  canceled,
+
+  @JsonValue('succeeded')
+  succeeded,
 }

@@ -25,6 +25,10 @@ class Customer extends Message {
   /// The customer’s full name or business name.
   final String? name;
 
+  /// The default payment method for the customer
+  @JsonKey(name: 'default_source')
+  final String? paymentMethod;
+
   Customer({
     required this.object,
     required this.id,
@@ -32,6 +36,7 @@ class Customer extends Message {
     this.email,
     this.metadata,
     this.name,
+    this.paymentMethod,
   });
 
   factory Customer.fromJson(Map<String, dynamic> json) =>
