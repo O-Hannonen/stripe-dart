@@ -18,7 +18,7 @@ class SetupIntent extends Message {
   @JsonKey(name: 'client_secret')
   final String? clientSecret;
 
-  final PaymentIntentStatus? status;
+  final SetupIntentStatus? status;
 
   SetupIntent({
     this.metadata,
@@ -36,7 +36,7 @@ class SetupIntent extends Message {
   Map<String, dynamic> toJson() => _$SetupIntentToJson(this);
 }
 
-enum PaymentIntentStatus {
+enum SetupIntentStatus {
   @JsonValue('requires_payment_method')
   requiresPaymentMethod,
 

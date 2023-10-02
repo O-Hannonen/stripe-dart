@@ -1721,7 +1721,7 @@ SetupIntent _$SetupIntentFromJson(Map<String, dynamic> json) => SetupIntent(
       customer: json['customer'] as String?,
       paymentMethod: json['payment_method'] as String?,
       clientSecret: json['client_secret'] as String?,
-      status: $enumDecodeNullable(_$PaymentIntentStatusEnumMap, json['status']),
+      status: $enumDecodeNullable(_$SetupIntentStatusEnumMap, json['status']),
     );
 
 Map<String, dynamic> _$SetupIntentToJson(SetupIntent instance) {
@@ -1738,17 +1738,17 @@ Map<String, dynamic> _$SetupIntentToJson(SetupIntent instance) {
   writeNotNull('customer', instance.customer);
   writeNotNull('payment_method', instance.paymentMethod);
   writeNotNull('client_secret', instance.clientSecret);
-  writeNotNull('status', _$PaymentIntentStatusEnumMap[instance.status]);
+  writeNotNull('status', _$SetupIntentStatusEnumMap[instance.status]);
   return val;
 }
 
-const _$PaymentIntentStatusEnumMap = {
-  PaymentIntentStatus.requiresPaymentMethod: 'requires_payment_method',
-  PaymentIntentStatus.requiresConfirmation: 'requires_confirmation',
-  PaymentIntentStatus.requiresAction: 'requires_action',
-  PaymentIntentStatus.processing: 'processing',
-  PaymentIntentStatus.canceled: 'canceled',
-  PaymentIntentStatus.succeeded: 'succeeded',
+const _$SetupIntentStatusEnumMap = {
+  SetupIntentStatus.requiresPaymentMethod: 'requires_payment_method',
+  SetupIntentStatus.requiresConfirmation: 'requires_confirmation',
+  SetupIntentStatus.requiresAction: 'requires_action',
+  SetupIntentStatus.processing: 'processing',
+  SetupIntentStatus.canceled: 'canceled',
+  SetupIntentStatus.succeeded: 'succeeded',
 };
 
 CreateSetupIntentRequest _$CreateSetupIntentRequestFromJson(
