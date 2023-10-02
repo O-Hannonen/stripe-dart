@@ -1794,3 +1794,26 @@ Map<String, dynamic> _$InvoiceSettingsToJson(InvoiceSettings instance) {
   writeNotNull('default_payment_method', instance.defaultPaymentMethod);
   return val;
 }
+
+ConfirmSetupIntentRequest _$ConfirmSetupIntentRequestFromJson(
+        Map<String, dynamic> json) =>
+    ConfirmSetupIntentRequest(
+      id: json['id'] as String,
+      paymentMethod: json['payment_method'] as String?,
+    );
+
+Map<String, dynamic> _$ConfirmSetupIntentRequestToJson(
+    ConfirmSetupIntentRequest instance) {
+  final val = <String, dynamic>{
+    'id': instance.id,
+  };
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('payment_method', instance.paymentMethod);
+  return val;
+}

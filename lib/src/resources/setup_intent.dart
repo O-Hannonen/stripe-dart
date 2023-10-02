@@ -24,4 +24,15 @@ class SetupIntentResource extends Resource<SetupIntent> {
 
     return SetupIntent.fromJson(response);
   }
+
+  Future<SetupIntent> confirm(
+    ConfirmSetupIntentRequest request,
+  ) async {
+    final response = await post(
+      'setup_intents/${request.id}/confirm',
+      data: request.toJson(),
+    );
+
+    return SetupIntent.fromJson(response);
+  }
 }

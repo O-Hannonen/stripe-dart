@@ -51,3 +51,4 @@ part 'src/messages/card.dart';
 part 'src/messages/setup_intent.dart';
 part 'src/messages/requests/create_setup_intent.dart';
 part 'src/messages/invoice_settings.dart';
+part 'src/messages/requests/confirm_setup_intent.dart';
