@@ -21,6 +21,7 @@ abstract class _CustomerRequest {
   final String? name;
 
   /// The ID of the PaymentMethod to attach to the customer.
+  @JsonKey(name: 'default_source')
   final String? paymentMethod;
 
   /// The customer’s phone number.

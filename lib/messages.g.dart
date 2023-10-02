@@ -1277,7 +1277,7 @@ CreateCustomerRequest _$CreateCustomerRequestFromJson(
         (k, e) => MapEntry(k, e as String),
       ),
       name: json['name'] as String?,
-      paymentMethod: json['payment_method'] as String?,
+      paymentMethod: json['default_source'] as String?,
       phoneNumber: json['phone_number'] as String?,
     );
 
@@ -1295,7 +1295,7 @@ Map<String, dynamic> _$CreateCustomerRequestToJson(
   writeNotNull('email', instance.email);
   writeNotNull('metadata', instance.metadata);
   writeNotNull('name', instance.name);
-  writeNotNull('payment_method', instance.paymentMethod);
+  writeNotNull('default_source', instance.paymentMethod);
   writeNotNull('phone_number', instance.phoneNumber);
   return val;
 }
@@ -1500,7 +1500,7 @@ UpdateCustomerRequest _$UpdateCustomerRequestFromJson(
         (k, e) => MapEntry(k, e as String),
       ),
       name: json['name'] as String?,
-      paymentMethod: json['payment_method'] as String?,
+      paymentMethod: json['default_source'] as String?,
       phoneNumber: json['phone_number'] as String?,
     );
 
@@ -1518,7 +1518,7 @@ Map<String, dynamic> _$UpdateCustomerRequestToJson(
   writeNotNull('email', instance.email);
   writeNotNull('metadata', instance.metadata);
   writeNotNull('name', instance.name);
-  writeNotNull('payment_method', instance.paymentMethod);
+  writeNotNull('default_source', instance.paymentMethod);
   writeNotNull('phone_number', instance.phoneNumber);
   val['id'] = instance.id;
   return val;
