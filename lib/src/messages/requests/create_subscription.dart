@@ -37,6 +37,10 @@ class CreateSubscriptionRequest {
   /// A list of up to 20 subscription items, each with an attached price.
   final List<CreateSubscriptionItemInline> items;
 
+  /// Number of days that the free trial lasts
+  @JsonKey(name: 'trial_period_days')
+  final int? trialDays;
+
   CreateSubscriptionRequest({
     required this.customer,
     this.cancelAtPeriodEnd,
@@ -46,6 +50,7 @@ class CreateSubscriptionRequest {
     this.metadata,
     this.paymentBehavior,
     required this.items,
+    this.trialDays,
   });
 
   factory CreateSubscriptionRequest.fromJson(Map<String, dynamic> json) =>

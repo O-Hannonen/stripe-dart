@@ -1588,6 +1588,7 @@ CreateSubscriptionRequest _$CreateSubscriptionRequestFromJson(
           .map((e) =>
               CreateSubscriptionItemInline.fromJson(e as Map<String, dynamic>))
           .toList(),
+      trialDays: json['trial_period_days'] as int?,
     );
 
 Map<String, dynamic> _$CreateSubscriptionRequestToJson(
@@ -1610,6 +1611,7 @@ Map<String, dynamic> _$CreateSubscriptionRequestToJson(
   writeNotNull(
       'payment_behavior', _$PaymentBehaviorEnumMap[instance.paymentBehavior]);
   val['items'] = instance.items.map((e) => e.toJson()).toList();
+  writeNotNull('trial_period_days', instance.trialDays);
   return val;
 }
 
